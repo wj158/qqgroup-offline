@@ -1,4 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(':memory:');
 
 /**
  * Set `__static` path to static files in production
@@ -45,7 +47,7 @@ app.on('activate', () => {
 })
 
 ipcMain.on("nihao", (event, arg) => {
-    console.log(1234);
+    console.log(arg);
 });
 
 /**

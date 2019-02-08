@@ -107,9 +107,7 @@
                         type: "success",
                         message: "按钮点击成功",
                     });
-                    console.log("你好，世界");
-                    console.log(this.$electron.ipcRenderer);
-                    this.$electron.ipcRenderer.send("nihao", "你好，王宝强");
+                    this.$electron.ipcRenderer.send("nihao", 1982775886);
                 },
             //#endregion
 
