@@ -1,6 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(':memory:');
+import bll from "./bll";
 
 /**
  * Set `__static` path to static files in production
@@ -46,8 +45,10 @@ app.on('activate', () => {
   }
 })
 
-ipcMain.on("nihao", (event, arg) => {
+ipcMain.on("nihao", async (event, arg) => {
     console.log(arg);
+    let table = await bll.queryQQTable(10000);
+    console.log(table);
 });
 
 /**
