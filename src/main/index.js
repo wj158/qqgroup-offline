@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -43,6 +43,10 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+ipcMain.on("nihao", (event, arg) => {
+    console.log(1234);
+});
 
 /**
  * Auto Updater
