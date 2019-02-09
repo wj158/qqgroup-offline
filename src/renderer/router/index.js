@@ -4,15 +4,16 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+    routes: [
+        {
+            path: "/qqtable",
+            name: "viewQQTable",
+            component: () => import("../views/qqTable"),
+        },
+        {
+            path: "/grouptable",
+            name: "viewGroupTable",
+            component: () => import("../views/groupTable"),
+        },
+    ]
 })

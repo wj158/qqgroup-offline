@@ -13,6 +13,12 @@
     .menuTitleWarp > i {
         margin-right: 3px;
     }
+
+    .myHeader {
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 2px 1px #eee;
+    }
 </style>
 
 <!--全局局部覆盖样式-->
@@ -22,50 +28,25 @@
         padding: 0px;
         width: 100%;
         height: 100%;
+        font-size: 14px;
+        font-family: "PingFang SC", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
     }
 </style>
 
 <template>
     <el-container id="app">
         <el-aside width="200px">
-            <el-menu :default-openeds="['1', '2']">
-                <el-submenu index="1">
-                    <template slot="title">
-                        <div class="menuTitleWarp">
-                            <i class="icon icon-QQ"></i>
-                            <span>查QQ</span>
-                        </div>
-                    </template>
-                    <el-menu-item index="1-1">二层关系图</el-menu-item>
-                    <el-menu-item index="1-2">加群表</el-menu-item>
-                    <el-menu-item index="1-3">加群图</el-menu-item>
-                </el-submenu>
-                <el-submenu index="2">
-                    <template slot="title">
-                        <div class="menuTitleWarp">
-                            <i class="icon icon-weibiaoti1"></i>
-                            <span>查群</span>
-                        </div>
-                    </template>
-                    <el-menu-item index="2-1">成员表</el-menu-item>
-                    <el-menu-item index="2-2">成员图</el-menu-item>
-                </el-submenu>
-                <el-submenu index="3">
-                    <template slot="title">
-                        <div class="menuTitleWarp">
-                            <i class="icon icon-shezhi"></i>
-                            <span>系统</span>
-                        </div>
-                    </template>
-                    <el-menu-item index="3-1">设置</el-menu-item>
-                    <el-menu-item index="3-2">帮助</el-menu-item>
-                    <el-menu-item index="3-3">关于</el-menu-item>
-                </el-submenu>
-            </el-menu>
+            <uiMenu></uiMenu>
         </el-aside>
-        <el-main>
-            <el-button type="primary" @click="handleClick">你好，世界</el-button>
-        </el-main>
+        <el-container>
+            <el-header class="myHeader">
+                <uiSearch></uiSearch>
+            </el-header>
+            <el-main>
+                <router-view></router-view>
+                <!-- <el-button type="primary" @click="handleClick">你好，世界</el-button> -->
+            </el-main>
+        </el-container>
     </el-container>
 </template>
 
@@ -130,7 +111,7 @@
 
         },
         mounted () {
-
+            this.$router.push("/qqtable");
         },
         components: {
 
