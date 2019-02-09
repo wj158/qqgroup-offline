@@ -51,6 +51,9 @@
 </template>
 
 <script>
+    import { remote } from "electron";
+    let sss = remote.getGlobal("str");
+
     export default {
         name: "app",
         props: {
@@ -111,6 +114,7 @@
 
         },
         mounted () {
+            console.log(sss);
             this.$router.push("/qqtable");
         },
         components: {
