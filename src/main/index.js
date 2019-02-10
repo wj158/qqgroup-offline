@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-import bll from "./bll";
+import api from "./api";
 
-let str = "故事好";
+global["API"] = api;
 
 /**
  * Set `__static` path to static files in production
@@ -49,8 +49,8 @@ app.on('activate', () => {
 
 ipcMain.on("nihao", async (event, arg) => {
     console.log(arg);
-    let table = await bll.queryQQTable(10000);
-    console.log(table);
+    // let table = await bll.queryQQTable(10000);
+    // console.log(table);
 });
 
 /**

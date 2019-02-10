@@ -1,34 +1,23 @@
 
-import { constants } from 'http2';
-import { fail } from 'assert';
 <!--局部样式-->
 <style scoped>
-    .uiSearch {
-        display: flex;
-        align-items: center;
-    }
+
 </style>
 
 <!--全局局部覆盖样式-->
 <style>
-    .uiSearch .el-input {
-        width: 320px;
-        margin-right: 12px;
-    }
+
 </style>
 
 <template>
-    <div class="uiSearch">
-        <el-input placeholder="请输入搜索内容" v-model="searchContent">
-            <el-button @click="handleSearchClick" slot="append">查询</el-button>
-        </el-input>
-        <el-checkbox v-model="showHead">显示头像</el-checkbox>
+    <div class="">
+        QQ图
     </div>
 </template>
 
 <script>
     export default {
-        name: "uiSearch",
+        name: "",
         props: {
 
         },
@@ -38,8 +27,6 @@ import { fail } from 'assert';
                 //#endregion
 
                 //#region 页面内容绑定数据
-                    searchContent: "",
-                    showHead: false,
                 //#endregion
 
                 //#region 页面样式绑定数据
@@ -61,10 +48,6 @@ import { fail } from 'assert';
         },
         methods: {
             //#region 页面事件方法
-                handleSearchClick () {
-                    console.log(this.searchContent);
-                    console.log(this.showHead);
-                },
             //#endregion
 
             //#region 业务逻辑方法

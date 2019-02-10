@@ -1,7 +1,9 @@
 
 <!--局部样式-->
 <style scoped>
+    .viewGroupTable {
 
+    }
 </style>
 
 <!--全局局部覆盖样式-->
@@ -10,13 +12,14 @@
 </style>
 
 <template>
-    <div class="">
+    <div class="viewGroupTable">
+        群表
     </div>
 </template>
 
 <script>
     export default {
-        name: "",
+        name: "viewGroupTable",
         props: {
 
         },

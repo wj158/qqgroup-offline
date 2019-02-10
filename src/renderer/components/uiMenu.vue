@@ -14,29 +14,30 @@
 <template>
     <el-menu
         class="uiMenu"
-        :default-openeds="['1', '2']">
-        <el-submenu index="1">
+        :router="true"
+        :default-openeds="['qq', 'group']">
+        <el-submenu index="qq">
             <template slot="title">
                 <div class="menuTitleWarp">
                     <i class="icon icon-QQ"></i>
                     <span>查QQ</span>
                 </div>
             </template>
-            <el-menu-item index="1-1">二层关系图</el-menu-item>
-            <el-menu-item index="1-2">加群表</el-menu-item>
-            <el-menu-item index="1-3">加群图</el-menu-item>
+            <el-menu-item index="/qqextgraph">二层关系图</el-menu-item>
+            <el-menu-item index="/qqtable">加群表</el-menu-item>
+            <el-menu-item index="/qqgraph">加群图</el-menu-item>
         </el-submenu>
-        <el-submenu index="2">
+        <el-submenu index="group">
             <template slot="title">
                 <div class="menuTitleWarp">
                     <i class="icon icon-weibiaoti1"></i>
                     <span>查群</span>
                 </div>
             </template>
-            <el-menu-item index="2-1">成员表</el-menu-item>
-            <el-menu-item index="2-2">成员图</el-menu-item>
+            <el-menu-item index="/grouptable">成员表</el-menu-item>
+            <el-menu-item index="/groupgraph">成员图</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
+        <el-submenu index="sys">
             <template slot="title">
                 <div class="menuTitleWarp">
                     <i class="icon icon-shezhi"></i>

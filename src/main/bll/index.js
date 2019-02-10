@@ -49,4 +49,7 @@ export default {
         let result = await dal.queryGroupTable(groupNum);
         return result;
     },
+    async closeDB () {
+        
+    },
 };
