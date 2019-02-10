@@ -1,6 +1,6 @@
 
 const SQLite3 = require("sqlite3").verbose();
-const db = new SQLite3.Database("/Users/jimao/Desktop/qqgroup-offline/qqgroup.db");
+const db = new SQLite3.Database("./qqgroup.db");
 import sql from "../sql";
 
 // 这里封装了一个简单的异步数据库查询方法
