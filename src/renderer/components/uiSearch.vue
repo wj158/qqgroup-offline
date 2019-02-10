@@ -19,7 +19,12 @@ import { fail } from 'assert';
 
 <template>
     <div class="uiSearch">
-        <el-input placeholder="请输入搜索内容" v-model="searchContent">
+        <el-input
+            clearable
+            placeholder="请输入搜索内容"
+            v-model="searchContent"
+            @clear="handleSearchClick"
+            @keyup.enter.native="handleSearchClick">
             <el-button @click="handleSearchClick" slot="append">查询</el-button>
         </el-input>
         <el-checkbox v-model="showHead">显示头像</el-checkbox>
@@ -47,7 +52,7 @@ import { fail } from 'assert';
             };
         },
         watch: {
-
+            "$route.path": "handleRouteChange",
         },
         computed: {
             //#region 常量计算属性
@@ -61,9 +66,18 @@ import { fail } from 'assert';
         },
         methods: {
             //#region 页面事件方法
+                handleRouteChange () {
+                    this.searchContent = "";
+                },
+
                 handleSearchClick () {
-                    console.log(this.searchContent);
-                    console.log(this.showHead);
+                    this.$router.push({
+                        path: this.$route.path,
+                        query: {
+                            id: this.searchContent,
+                            head: this.showHead,
+                        },
+                    });
                 },
             //#endregion
 

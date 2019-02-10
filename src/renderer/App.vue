@@ -31,6 +31,11 @@
         font-size: 14px;
         font-family: "PingFang SC", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
     }
+
+    a {
+        color: #409EFF;
+        text-decoration: none;
+    }
 </style>
 
 <template>
