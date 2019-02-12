@@ -4,6 +4,11 @@
     .viewQQTable {
 
     }
+
+    .tableImg {
+        width: 32px;
+        height: 32px;
+    }
 </style>
 
 <!--全局局部覆盖样式-->
@@ -17,6 +22,16 @@
             :data="list"
             stripe
             border>
+            <el-table-column
+                width="70"
+                label="群头像">
+                <template slot-scope="scope">
+                    <uiHead
+                        type="group"
+                        :account="scope.row.joinGroupNum">
+                    </uiHead>
+                </template>
+            </el-table-column>
             <el-table-column
                 show-overflow-tooltip
                 label="群名称">
