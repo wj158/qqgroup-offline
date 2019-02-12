@@ -1,6 +1,4 @@
 
-import { constants } from 'http2';
-import { fail } from 'assert';
 <!--局部样式-->
 <style scoped>
     .uiSearch {
@@ -71,17 +69,29 @@ import { fail } from 'assert';
                 },
 
                 handleSearchClick () {
-                    this.$router.push({
-                        path: this.$route.path,
-                        query: {
-                            id: this.searchContent,
-                            head: this.showHead,
-                        },
-                    });
+                    this.b_search();
                 },
             //#endregion
 
             //#region 业务逻辑方法
+                b_search () {
+                    let num = Number(this.searchContent);
+                    if (num === 0 || isNaN(num)) {
+                        this.$message({
+                            type: "warning",
+                            message: "搜索账号非法",
+                        });
+                    }
+                    else {
+                        this.$router.push({
+                            path: this.$route.path,
+                            query: {
+                                id: num,
+                                head: this.showHead,
+                            },
+                        });
+                    }
+                },
             //#endregion
 
             //#region 接口访问方法
