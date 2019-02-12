@@ -30,5 +30,20 @@ export default new Router({
             name: "viewGroupTable",
             component: () => import("../views/groupTable"),
         },
+        {
+            path: "/setting",
+            name: "viewSetting",
+            component: () => import("../views/setting"),
+        },
+        {
+            path: "/helper",
+            name: "viewHelper",
+            component: () => import("../views/helper"),
+        },
+        {
+            path: "/about",
+            name: "viewAbout",
+            component: () => import("../views/about"),
+        },
     ]
 })

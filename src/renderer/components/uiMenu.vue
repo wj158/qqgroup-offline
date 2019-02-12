@@ -44,9 +44,9 @@
                     <span>系统</span>
                 </div>
             </template>
-            <el-menu-item index="3-1">设置</el-menu-item>
-            <el-menu-item index="3-2">帮助</el-menu-item>
-            <el-menu-item index="3-3">关于</el-menu-item>
+            <el-menu-item index="/setting">设置</el-menu-item>
+            <el-menu-item index="/helper">帮助</el-menu-item>
+            <el-menu-item index="/about">关于</el-menu-item>
         </el-submenu>
     </el-menu>
 </template>
