@@ -90,8 +90,7 @@
                         this.$router.push({
                             path: this.$route.path,
                             query: {
-                                id: num,
-                                head: this.showHead,
+                                id: num
                             },
                         });
                     }

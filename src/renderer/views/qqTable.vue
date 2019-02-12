@@ -37,24 +37,26 @@
                 width="70"
                 label="群头像">
                 <template slot-scope="scope">
-                    <uiHead
-                        type="group"
-                        :id="scope.row.joinGroupNum">
-                    </uiHead>
+                    <router-link :to="`/grouptable?id=${ scope.row.joinGroupNum }`">
+                        <uiHead
+                            type="group"
+                            :id="scope.row.joinGroupNum">
+                        </uiHead>
+                    </router-link>
                 </template>
             </el-table-column>
             <el-table-column
                 show-overflow-tooltip
                 label="群名称">
                 <template slot-scope="scope">
-                    <router-link to="/grouptable">{{ scope.row.title }}</router-link>
+                    <router-link :to="`/grouptable?id=${ scope.row.joinGroupNum }`">{{ scope.row.title }}</router-link>
                 </template>
             </el-table-column>
             <el-table-column
                 width="110"
                 label="群号">
                 <template slot-scope="scope">
-                    <router-link to="/grouptable">{{ scope.row.joinGroupNum }}</router-link>
+                    <router-link :to="`/grouptable?id=${ scope.row.joinGroupNum }`">{{ scope.row.joinGroupNum }}</router-link>
                 </template>
             </el-table-column>
             <el-table-column
@@ -85,6 +87,11 @@
                 prop="auth"
                 width="70"
                 label="群内权限">
+                <template slot-scope="scope">
+                    <span v-if="scope.row.auth == 1">群主</span>
+                    <span v-if="scope.row.auth == 2">管理员</span>
+                    <span v-if="scope.row.auth == 4">群员</span>
+                </template>
             </el-table-column>
             <el-table-column
                 width="70"
@@ -146,9 +153,9 @@
             //#region 业务逻辑方法
                 async b_updateTable (id, head) {
                     if (!id) {
-                        id = 10000;
+                        id = 10001;
                     }
-                    this.id = id;
+                    this.id = Number(id);
                     if (!head) {
                         head = false;
                     }

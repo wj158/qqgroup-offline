@@ -6,27 +6,27 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
-            path: "/qqgraph/:id",
+            path: "/qqgraph",
             name: "viewQQGraph",
             component: () => import("../views/qqGraph"),
         },
         {
-            path: "/groupgraph/:id",
+            path: "/groupgraph",
             name: "viewGroupGraph",
             component: () => import("../views/groupGraph"),
         },
         {
-            path: "/qqextgraph/:id",
+            path: "/qqextgraph",
             name: "viewQQExtGraph",
             component: () => import("../views/qqExtGraph"),
         },
         {
-            path: "/qqtable/:id",
+            path: "/qqtable",
             name: "viewQQTable",
             component: () => import("../views/qqTable"),
         },
         {
-            path: "/grouptable/:id",
+            path: "/grouptable",
             name: "viewGroupTable",
             component: () => import("../views/groupTable"),
         },

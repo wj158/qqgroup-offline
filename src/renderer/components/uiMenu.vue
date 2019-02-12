@@ -23,9 +23,9 @@
                     <span>查QQ</span>
                 </div>
             </template>
-            <el-menu-item index="/qqextgraph/10001">二层关系图</el-menu-item>
-            <el-menu-item index="/qqtable/10001">加群表</el-menu-item>
-            <el-menu-item index="/qqgraph/10001">加群图</el-menu-item>
+            <el-menu-item index="/qqextgraph?id=10001">二层关系图</el-menu-item>
+            <el-menu-item index="/qqtable?id=10001">加群表</el-menu-item>
+            <el-menu-item index="/qqgraph?id=10001">加群图</el-menu-item>
         </el-submenu>
         <el-submenu index="group">
             <template slot="title">
@@ -34,8 +34,8 @@
                     <span>查群</span>
                 </div>
             </template>
-            <el-menu-item index="/grouptable/60623498">成员表</el-menu-item>
-            <el-menu-item index="/groupgraph/60623498">成员图</el-menu-item>
+            <el-menu-item index="/grouptable?id=60623498">成员表</el-menu-item>
+            <el-menu-item index="/groupgraph?id=60623498">成员图</el-menu-item>
         </el-submenu>
         <el-submenu index="sys">
             <template slot="title">
