@@ -51,6 +51,10 @@
         },
         watch: {
             "$route.path": "handleRouteChange",
+
+            showHead (nv) {
+                localStorage.setItem("showHead", nv);
+            },
         },
         computed: {
             //#region 常量计算属性

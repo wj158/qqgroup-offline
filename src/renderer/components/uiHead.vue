@@ -5,13 +5,20 @@
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
-    .tableImg {
+    .uiHead > img {
         width: 32px;
         height: 32px;
         cursor: pointer;
+    }
+
+    .uiHead > img.bigImg {
+        width: 64px;
+        height: 64px;
     }
 </style>
 
@@ -22,7 +29,12 @@
 
 <template>
     <div class="uiHead">
-        <img class="tableImg" :src="autoImgSrc" />
+        <img :class="{ bigImg: big }" :src="autoImgSrc" />
+        <div
+            v-if="text"
+            :style="autoTextStyle">
+            {{ autoText }}
+        </div>
     </div>
 </template>
 
@@ -34,9 +46,17 @@
                 type: String,
                 default: "",
             },
-            account: {
+            id: {
                 type: Number,
                 default: "",
+            },
+            big: {
+                type: Boolean,
+                default: false,
+            },
+            text: {
+                type: Boolean,
+                default: false,
             },
         },
         data () {
@@ -61,18 +81,36 @@
             //#region 数据转换计算属性
                 autoImgSrc () {
                     if (this.type == "qq") {
-                        return `http://q2.qlogo.cn/headimg_dl?dst_uin=${ this.account }&spec=100`;
+                        return `http://q2.qlogo.cn/headimg_dl?dst_uin=${ this.id }&spec=100`;
                     }
                     else if (this.type == "group") {
-                        return `http://p.qlogo.cn/gh/${ this.account }/${ this.account }/100/`;
+                        return `http://p.qlogo.cn/gh/${ this.id }/${ this.id }/100/`;
                     }
                     else {
                         return "";
                     }
                 },
+
+                autoText () {
+                    if (this.type == "qq") {
+                        return `QQ：${ this.id }`;
+                    }
+                    else if (this.type == "group") {
+                        return `QQ群：${ this.id }`;
+                    }
+                    else {
+                        return "";
+                    }     
+                },
             //#endregion
 
             //#region 样式计算属性
+                autoTextStyle () {
+                    return {
+                        fontSize: this.big ? "14px" : "12px",
+                        marginTop: this.big ? "10px" : "4px",
+                    };
+                },
             //#endregion
         },
         methods: {

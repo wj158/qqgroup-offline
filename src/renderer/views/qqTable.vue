@@ -9,6 +9,10 @@
         width: 32px;
         height: 32px;
     }
+
+    .qqHead {
+        margin-bottom: 16px;
+    }
 </style>
 
 <!--全局局部覆盖样式-->
@@ -18,6 +22,13 @@
 
 <template>
     <div class="viewQQTable">
+        <uiHead
+            class="qqHead"
+            type="qq"
+            :id="id"
+            :big="true"
+            :text="true">
+        </uiHead>
         <el-table
             :data="list"
             stripe
@@ -28,7 +39,7 @@
                 <template slot-scope="scope">
                     <uiHead
                         type="group"
-                        :account="scope.row.joinGroupNum">
+                        :id="scope.row.joinGroupNum">
                     </uiHead>
                 </template>
             </el-table-column>
@@ -104,6 +115,7 @@
                 //#endregion
 
                 //#region 页面内容绑定数据
+                    id: 0,
                     list: [],
                 //#endregion
 
@@ -136,6 +148,7 @@
                     if (!id) {
                         id = 10000;
                     }
+                    this.id = id;
                     if (!head) {
                         head = false;
                     }
