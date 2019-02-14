@@ -7,4 +7,5 @@ export default {
     queryQQExtGraph: bll.queryQQExtGraph,
     queryQQTable: bll.queryQQTable,
     queryGroupTable: bll.queryGroupTable,
+    getAppDirDBPath: bll.getAppDirDBPath,
 };

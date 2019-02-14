@@ -1,4 +1,5 @@
 
+import { constants } from 'http2';
 <!--局部样式-->
 <style scoped>
     #app {
@@ -56,6 +57,8 @@
 </template>
 
 <script>
+    const { dialog } = require('electron').remote;
+
     export default {
         name: "app",
         props: {
@@ -116,7 +119,21 @@
 
         },
         mounted () {
-
+            let dbPath = localStorage.getItem("dbPath");
+            let result = this.$api.getAppDirDBPath();
+            console.log(result);
+            // if (!dbPath) {
+            //     dialog.showOpenDialog({
+            //         title: "请选择QQ群数据库文件",
+            //         properties: ["openFile"],
+            //         filters: [
+            //             { name: 'SQLite3数据库', extensions: ['db', 'DB'] },
+            //         ],
+            //         message: "请选择QQ群数据库文件",
+            //     }, paths => {
+            //         console.log(paths);
+            //     });
+            // }
         },
         components: {
 

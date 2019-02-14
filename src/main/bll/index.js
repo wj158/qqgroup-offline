@@ -1,5 +1,7 @@
 
 import dal from "../dal";
+const fs = require("fs");
+const path = require("path");
 
 export default {
     async queryQQGraph (qqNum) {
@@ -51,5 +53,15 @@ export default {
     },
     async closeDB () {
         
+    },
+    // 尝试获取应用程序目录下的数据库路径
+    getAppDirDBPath () {
+        let dbPath = "./qqgroup.db";
+        if (fs.existsSync(dbPath)) {
+            return path.resolve(dbPath);
+        }
+        else {
+            return undefined;
+        }
     },
 };
