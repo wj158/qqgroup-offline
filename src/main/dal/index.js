@@ -2,6 +2,7 @@
 const SQLite3 = require("sqlite3").verbose();
 const db = new SQLite3.Database("./qqgroup.db");
 import sql from "../sql";
+const SQLite3DB = require("./sqlite3db");
 
 // 这里封装了一个简单的异步数据库查询方法
 function query (sqlStr, params) {
@@ -61,6 +62,12 @@ export default {
         let list = await query(sql.queryGroupTableSQL.table, groupNum);
         return list;
     },
+
+    // 验证数据库是否合法
+    async checkDB (dbPath) {
+        
+    },
+
     close () {
         return new Promise((resolve, reject) => {
             db.close(e => {

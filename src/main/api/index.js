@@ -8,4 +8,5 @@ export default {
     queryQQTable: bll.queryQQTable,
     queryGroupTable: bll.queryGroupTable,
     getAppDirDBPath: bll.getAppDirDBPath,
+    checkExists: bll.checkExists,
 };

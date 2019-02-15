@@ -64,4 +64,13 @@ export default {
             return undefined;
         }
     },
+    // 检查一个文件是否存在
+    checkExists (path) {
+        if (fs.existsSync(path)) {
+            return path.resolve(dbPath);
+        }
+        else {
+            return undefined;
+        }
+    },
 };

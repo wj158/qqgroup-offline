@@ -57,7 +57,7 @@ import { constants } from 'http2';
 </template>
 
 <script>
-    const { dialog } = require('electron').remote;
+    import logic from "./logic";
 
     export default {
         name: "app",
@@ -119,21 +119,7 @@ import { constants } from 'http2';
 
         },
         mounted () {
-            let dbPath = localStorage.getItem("dbPath");
-            let result = this.$api.getAppDirDBPath();
-            console.log(result);
-            // if (!dbPath) {
-            //     dialog.showOpenDialog({
-            //         title: "请选择QQ群数据库文件",
-            //         properties: ["openFile"],
-            //         filters: [
-            //             { name: 'SQLite3数据库', extensions: ['db', 'DB'] },
-            //         ],
-            //         message: "请选择QQ群数据库文件",
-            //     }, paths => {
-            //         console.log(paths);
-            //     });
-            // }
+            logic.dbCheckSelect();
         },
         components: {
 
