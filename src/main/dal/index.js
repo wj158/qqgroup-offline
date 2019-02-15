@@ -62,12 +62,19 @@ export default {
         let list = await query(sql.queryGroupTableSQL.table, groupNum);
         return list;
     },
-
     // 验证数据库是否合法
     async checkDB (dbPath) {
-        
+        let db = new SQLite3DB(dbPath);
+        let rows = await db.query(sql.checkDBSQL);
+        await db.close();
+        let result = false;
+        if (rows.length > 0 &&
+            rows[0] &&
+            rows[0].result == 1) {
+            result = true;
+        }
+        return result;
     },
-
     close () {
         return new Promise((resolve, reject) => {
             db.close(e => {

@@ -132,5 +132,13 @@ export default {
                 a.groupNum = ?
         `,
     },
-
+    // 用来校验数据库是否合法的SQL语句
+    checkDBSQL: `
+        select
+            GROUP_CONCAT(name) = 'group,sqlite_sequence,member,groupNumIndex,joinGroupNumIndex,qqNumIndex,qqExtView,groupInfoTable,qqJoinGroupInfoTable' as 'result'
+        from
+            sqlite_master
+        order by
+            name
+    `,
 };
